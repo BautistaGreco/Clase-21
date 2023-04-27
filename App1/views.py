@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from App1.models import Curso
 from django.http import HttpResponse
+from App1.forms import CursoFormulario
 
 # Create your views here.
 def inicio(request):
@@ -15,7 +16,7 @@ def entregables(request):
     return render(request,'App1/entregables.html')
 def cursoFormulario(request):
       if request.method == "POST":
-            miFormulario = cursoFormulario(request.POST) # Aqui me llega la informacion del html
+            miFormulario = CursoFormulario(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
 
             if miFormulario.is_valid:
@@ -24,7 +25,7 @@ def cursoFormulario(request):
                   curso.save()
                   return render(request, "App1/inicio.html")
       else:
-            miFormulario = cursoFormulario()
+            miFormulario = CursoFormulario()
  
       return render(request, "App1/cursoFormulario.html", {"miFormulario": miFormulario})
 
