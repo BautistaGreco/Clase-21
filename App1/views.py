@@ -15,7 +15,7 @@ def entregables(request):
     return render(request,'App1/entregables.html')
 def cursoFormulario(request):
       if request.method == "POST":
-            miFormulario = CursoFormulario(request.POST) # Aqui me llega la informacion del html
+            miFormulario = cursoFormulario(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
 
             if miFormulario.is_valid:
@@ -24,7 +24,7 @@ def cursoFormulario(request):
                   curso.save()
                   return render(request, "App1/inicio.html")
       else:
-            miFormulario = CursoFormulario()
+            miFormulario = cursoFormulario()
  
       return render(request, "App1/cursoFormulario.html", {"miFormulario": miFormulario})
 

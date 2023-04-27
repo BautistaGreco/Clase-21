@@ -7,10 +7,22 @@
     <title>Formulario - Agregar Curso</title>
 </head>
 <body>
-    <form action="/cursoFormulario/"    method="post"> {% csrf_token %}
-        <p> Curso: <input type = "text" name="nombre">
-        <p> Camada: <input type = "text" name="curso">
-        <input type = "submit" value="Enviar">
+    {% if miFormulario.errors %} 
+    
+    <p style="color: red;"> Estan mal los datos, revisalos</p>
+    
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        <!-- Aca esta la magia de Django-->
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+        
      </form>   
 </body>
 </html>
