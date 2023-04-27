@@ -7,7 +7,7 @@
     <title>Formulario - Agregar Curso</title>
 </head>
 <body>
-    <form action="/cursoFormulario/"    method="post">
+    <form action="/cursoFormulario/"    method="post"> {% csrf_token %}
         <p> Curso: <input type = "text" name="nombre">
         <p> Camada: <input type = "text" name="curso">
         <input type = "submit" value="Enviar">

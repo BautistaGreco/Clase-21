@@ -13,6 +13,10 @@ def estudiantes(request):
     return render(request,'App1/estudiantes.html')
 def entregables(request):
     return render(request,'App1/entregables.html')
-
 def cursoFormulario(request):
-    return render(request,'App1/cursoFormulario.html')
+      if request.method == 'POST':
+            curso =  Curso(request.post['nombre'],(request.post['curso']))
+            curso.save()
+            return render(request, "App1/inicio.html")
+      return render(request,"App1/cursoFormulario.html")
+
