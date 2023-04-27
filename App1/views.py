@@ -50,5 +50,12 @@ def busquedaCurso(request):
      return render(request,'App1/busquedaCurso.html')
 
 def buscar(request):
-     respuesta= f"Estoy buscando la comision nro: {request.GET['curso']}"
+     if request.GET['curso']:
+          curso = request.GET['curso']
+          cursos= Curso.objects.filter(curso__icontains=curso)
+
+          return render(request,'App1/resultadosBusqueda.html', {"cursos":cursos, "comisiones": curso })
+     else:
+          respuesta= "No enviaste datos"
+
      return HttpResponse(respuesta)
