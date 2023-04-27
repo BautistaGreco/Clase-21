@@ -13,3 +13,6 @@ def estudiantes(request):
     return render(request,'App1/estudiantes.html')
 def entregables(request):
     return render(request,'App1/entregables.html')
+
+def cursoFormulario(request):
+    return render(request,'App1/cursoFormulario.html')
