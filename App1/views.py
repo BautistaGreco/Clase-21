@@ -44,3 +44,11 @@ def profesorFormulario(request):
         miFormulario = ProfesorFormulario()
              
      return render(request, "App1/profesorFormulario.html", {"miFormulario": miFormulario})
+
+
+def busquedaCurso(request):
+     return render(request,'App1/busquedaCurso.html')
+
+def buscar(request):
+     respuesta= f"Estoy buscando la comision nro: {request.GET['curso']}"
+     return HttpResponse(respuesta)
